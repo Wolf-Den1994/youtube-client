@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'youtube-client';
+
+  isShowFilters = false;
+
+  toggleShowFilter = () => {
+    console.log(555);
+    this.isShowFilters = !this.isShowFilters;
+  };
 }

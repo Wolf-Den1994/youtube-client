@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  user-select: none;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #dfe0e8;
+}
+
+.wrapper-header,
+.content {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.wrapper-content {
+  padding: 30px;
+  background: #eee;
+}
+
+.font {
+  user-select: none;
+  line-height: 140%;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}

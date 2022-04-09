@@ -1,0 +1,10 @@
+<app-result-item
+  *ngFor="let item of items"
+  [src]="item.snippet.thumbnails.medium.url"
+  [title]="item.snippet.localized.title"
+  [publishedAt]="item.snippet.publishedAt"
+  [view]="item.statistics.viewCount"
+  [like]="item.statistics.likeCount"
+  [dislike]="item.statistics.dislikeCount"
+  [comment]="item.statistics.commentCount"
+></app-result-item>
