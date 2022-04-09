@@ -1,4 +1,4 @@
 export interface SearchModel {
   searchQuery: string
-  loading: boolean
+  isLoading: boolean
 }

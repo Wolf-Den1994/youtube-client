@@ -1,28 +1,21 @@
-interface IStatisticsVideo {
-  viewCount: string
-  likeCount: string
-  dislikeCount: string
-  favoriteCount: string
-  commentCount: string
+export interface IVideo {
+  kind: string
+  etag: string
+  pageInfo: IPageInfo
+  items: IItems[]
 }
 
-interface ISize {
-  url: string
-  width: number
-  height: number
+interface IPageInfo {
+  totalResults: number
+  resultsPerPage: number
 }
 
-interface IThumbnails {
-  default: ISize
-  medium: ISize
-  high: ISize
-  standard: ISize
-  maxres: ISize
-}
-
-interface ILocalized {
-  title: string
-  description: string
+interface IItems {
+  kind: string
+  etag: string
+  id: string
+  snippet: ISnippet
+  statistics: IStatisticsVideo
 }
 
 interface ISnippet {
@@ -39,22 +32,29 @@ interface ISnippet {
   defaultAudioLanguage: string
 }
 
-interface IVideo {
-  kind: string
-  etag: string
-  id: string
-  snippet: ISnippet
-  statistics: IStatisticsVideo
+interface ILocalized {
+  title: string
+  description: string
 }
 
-interface IPageInfo {
-  totalResults: number
-  resultsPerPage: number
+interface IThumbnails {
+  default: ISize
+  medium: ISize
+  high: ISize
+  standard: ISize
+  maxres: ISize
 }
 
-export interface IVideos {
-  kind: string
-  etag: string
-  pageInfo: IPageInfo
-  items: IVideo[]
+interface ISize {
+  url: string
+  width: 120 | 320 | 480 | 640 | 1280
+  height: 90 | 180 | 360 | 480 | 720
+}
+
+interface IStatisticsVideo {
+  viewCount: string
+  likeCount: string
+  dislikeCount: string
+  favoriteCount: string
+  commentCount: string
 }
