@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { data } from './result-item/mockData';
+import { Component, Input } from '@angular/core';
+import { IItem } from './result-item/result-item.model';
 
 @Component({
   selector: 'app-result-block',
@@ -7,5 +7,5 @@ import { data } from './result-item/mockData';
   styleUrls: ['./result-block.component.scss'],
 })
 export class ResultBlockComponent {
-  items = data.items;
+  @Input() items!: IItem[];
 }

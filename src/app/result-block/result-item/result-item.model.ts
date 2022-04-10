@@ -2,7 +2,7 @@ export interface IVideo {
   kind: string
   etag: string
   pageInfo: IPageInfo
-  items: IItems[]
+  items: IItem[]
 }
 
 interface IPageInfo {
@@ -10,7 +10,7 @@ interface IPageInfo {
   resultsPerPage: number
 }
 
-interface IItems {
+export interface IItem {
   kind: string
   etag: string
   id: string

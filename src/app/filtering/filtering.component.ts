@@ -7,4 +7,16 @@ import { Component, Input } from '@angular/core';
 })
 export class FilteringComponent {
   @Input() isShowFilters!: boolean;
+
+  @Input() handleSortDate!: Function;
+
+  @Input() handleSortViews!: Function;
+
+  startSort = (content: string) => {
+    if (content === 'Date') {
+      this.handleSortDate();
+    } else {
+      this.handleSortViews();
+    }
+  };
 }

@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonsComponent {
   @Input() content!: string;
+
+  @Input() startSort!: Function;
+
+  handleClick = (content: string) => {
+    this.startSort(content);
+  };
 }
