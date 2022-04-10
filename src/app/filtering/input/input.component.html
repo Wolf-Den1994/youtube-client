@@ -1,4 +1,9 @@
 <label class="label">
   <span *ngIf="value">by word or sentence</span>
-  <input type="text" placeholder="By word or sentence" #myInput [value]="value" (input)="inputHandle(myInput.value)">
+  <input
+    type="text"
+    placeholder="By word or sentence"
+    #myInput [value]="value"
+    (input)="inputHandle(myInput.value)"
+  >
 </label>

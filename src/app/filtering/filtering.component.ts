@@ -12,11 +12,17 @@ export class FilteringComponent {
 
   @Input() handleSortViews!: Function;
 
+  @Input() handleFilterWords!: Function;
+
   startSort = (content: string) => {
     if (content === 'Date') {
       this.handleSortDate();
     } else {
       this.handleSortViews();
     }
+  };
+
+  startFilter = (query: string) => {
+    this.handleFilterWords(query);
   };
 }

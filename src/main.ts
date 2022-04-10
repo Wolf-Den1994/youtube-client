@@ -9,5 +9,9 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-// eslint-disable-next-line no-console
-  .catch((err) => console.error(err));
+  .catch((err) => {
+    if (!environment.production) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+    }
+  });
