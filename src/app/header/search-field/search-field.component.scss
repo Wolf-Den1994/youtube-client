@@ -1,0 +1,22 @@
+.search-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-field-label {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    font-size: 14px;
+    width: 400px;
+    padding: 10px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 4px;
+    background: #EFEFEF;
+  }
+}

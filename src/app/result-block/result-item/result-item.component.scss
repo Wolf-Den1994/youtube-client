@@ -1,0 +1,49 @@
+.card {
+  padding: 20px;
+  max-width: 280px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+
+  background: #E5E5E5;
+  border-radius: 5px;
+}
+
+.card-button {
+  align-self: center;
+}
+
+.card-line {
+  height: 5px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  border-radius: 0 0 5px 5px;
+  background: #F2C94C;
+
+  &.green {
+    background: #27AE60;
+  }
+  &.blue {
+    background: #2F80ED;
+  }
+  &.red {
+    background: #EB5757;
+  }
+}
+
+.counts {
+  padding: 4px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}

@@ -1,0 +1,16 @@
+<div class="card">
+  <app-video-thumbnail [src]="src"></app-video-thumbnail>
+  <div class="counts">
+    <app-views-count [view]="view"></app-views-count>
+    <app-likes-count [like]="like"></app-likes-count>
+    <app-dislikes-count [dislike]="dislike"></app-dislikes-count>
+    <app-comments-count [comment]="comment"></app-comments-count>
+  </div>
+  <app-video-title [title]="title"></app-video-title>
+  <app-more-button class="card-button"></app-more-button>
+  <div class="card-line" [ngClass]="{
+    red: lineColor === 'red',
+    blue: lineColor === 'blue',
+    green: lineColor === 'green'
+  }"></div>
+</div>
