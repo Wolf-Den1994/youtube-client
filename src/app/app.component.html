@@ -1,10 +1,17 @@
 <div>
   <div class="wrapper-header">
     <h1 class="visuallyhidden">youtube-client</h1>
-    <app-header [toggleShowFilter]="toggleShowFilter"></app-header>
+    <app-header
+      [toggleShowFilter]="toggleShowFilter"
+      [setSearchValue]="setSearchValue"
+      [handleSearch]="handleSearch"
+    ></app-header>
     <app-filtering [isShowFilters]="isShowFilters"></app-filtering>
   </div>
-  <div class="wrapper-content">
+  <div
+    class="wrapper-content"
+    *ngIf="isShowResults"
+  >
     <div class="content">
       <app-result-block class="data-wrapper"></app-result-block>
     </div>

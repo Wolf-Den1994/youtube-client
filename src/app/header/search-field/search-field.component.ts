@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-field',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-field.component.scss'],
 })
 export class SearchFieldComponent {
-  value = '';
+  @Input() changeSearchValue!: Function;
+
+  @Input() startSearch!: Function;
+
+  inputHandle = (value: string) => {
+    this.changeSearchValue(value);
+  };
+
+  handleSearch = () => {
+    this.startSearch();
+  };
 }

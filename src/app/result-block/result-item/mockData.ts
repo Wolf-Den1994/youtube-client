@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { IVideos } from './result-item.model';
+import { IVideo } from './result-item.model';
 
-export const data: IVideos = {
+export const data: IVideo = {
   kind: 'youtube#videoListResponse',
   etag: '"Fznwjl6JEQdo1MGvHOGaz_YanRU/Cmodw7c5XPTM8Yg3kMXelihxek4"',
   pageInfo: {

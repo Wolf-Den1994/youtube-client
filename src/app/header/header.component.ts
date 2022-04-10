@@ -8,7 +8,19 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() toggleShowFilter!: Function;
 
+  @Input() setSearchValue!: Function;
+
+  @Input() handleSearch!: Function;
+
+  changeSearchValue = (value: string) => {
+    this.setSearchValue(value);
+  };
+
   changeShowFilter = () => {
     this.toggleShowFilter();
+  };
+
+  startSearch = () => {
+    this.handleSearch();
   };
 }

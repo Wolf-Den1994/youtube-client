@@ -10,8 +10,20 @@ export class AppComponent {
 
   isShowFilters = false;
 
+  isShowResults = false;
+
+  searchValue = '';
+
+  setSearchValue = (value: string) => {
+    this.searchValue = value;
+  };
+
   toggleShowFilter = () => {
-    console.log(555);
     this.isShowFilters = !this.isShowFilters;
+  };
+
+  handleSearch = () => {
+    if (this.searchValue) this.isShowResults = true;
+    else this.isShowResults = false;
   };
 }
