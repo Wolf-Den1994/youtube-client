@@ -1,9 +1,17 @@
 .header {
   padding: 15px 8px;
+  position: relative;
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
+}
+
+.header-login {
+  position: absolute;
+  right: 10px;
+  top: 20px;
 }
 
 .header-search {

@@ -26,14 +26,14 @@ export class ResultItemComponent implements OnInit {
   paintLine = () => {
     const date = new Date(this.publishedAt);
     const secInOneWeek = 604800000;
-    const secInOneMonth = 2678400000;
+    const secInOneMonth = 2419200000;
     const secInSixMonth = 15638400000;
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).valueOf();
     const dateString = date.valueOf();
-    if (dateString < today - secInOneWeek) this.lineColor = 'blue';
-    if (dateString < today - secInOneMonth) this.lineColor = 'green';
     if (dateString < today - secInSixMonth) this.lineColor = 'red';
+    if (dateString > today - secInOneMonth) this.lineColor = 'green';
+    if (dateString > today - secInOneWeek) this.lineColor = 'blue';
   };
 
   ngOnInit(): void {
