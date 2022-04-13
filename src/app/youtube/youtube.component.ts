@@ -15,6 +15,7 @@ export class YoutubeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.youtubeService.isShowHeader = true;
     this.http.get<IVideo>('assets/mocks/response.json').subscribe((data) => {
       this.youtubeService.result = data.items;
       this.youtubeService.items = data.items;

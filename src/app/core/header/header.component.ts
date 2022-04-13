@@ -8,7 +8,7 @@ import { YoutubeService } from '../../youtube/services/youtube.service';
 })
 export class HeaderComponent {
   constructor(
-    private youtubeService: YoutubeService,
+    public youtubeService: YoutubeService,
   ) {}
 
   changeShowFilter = () => {

@@ -6,6 +6,8 @@ import { IItem } from '../models/youtube-video.model';
 })
 
 export class YoutubeService {
+  isShowHeader = true;
+
   isShowFilters = false;
 
   isShowResults = false;

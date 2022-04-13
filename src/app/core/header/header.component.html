@@ -1,5 +1,8 @@
 <header class="header">
-  <div class="header-search">
+  <div
+    class="header-search"
+    *ngIf="youtubeService.isShowHeader"
+  >
     <app-logo></app-logo>
     <app-search-field></app-search-field>
     <app-settings [changeShowFilter]="changeShowFilter"></app-settings>
