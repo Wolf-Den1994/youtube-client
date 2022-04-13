@@ -24,6 +24,7 @@ import { LikesCountComponent } from './result-block/result-item/likes-count/like
 import { DislikesCountComponent } from './result-block/result-item/dislikes-count/dislikes-count.component';
 import { VideoTitleComponent } from './result-block/result-item/video-title/video-title.component';
 import { MoreButtonComponent } from './result-block/result-item/more-button/more-button.component';
+import { ColorLineDirective } from './directives/color-line.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MoreButtonComponent } from './result-block/result-item/more-button/more
     DislikesCountComponent,
     VideoTitleComponent,
     MoreButtonComponent,
+    ColorLineDirective,
   ],
   imports: [
     // BrowserModule,

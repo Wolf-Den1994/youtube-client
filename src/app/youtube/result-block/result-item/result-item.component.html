@@ -8,9 +8,5 @@
   </div>
   <app-video-title [title]="title"></app-video-title>
   <app-more-button class="card-button"></app-more-button>
-  <div class="card-line" [ngClass]="{
-    red: lineColor === 'red',
-    blue: lineColor === 'blue',
-    green: lineColor === 'green'
-  }"></div>
+  <div class="card-line" [appColor]="publishedAt"></div>
 </div>
