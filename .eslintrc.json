@@ -64,7 +64,7 @@
     },
     {
       "files": [
-        "src/app/constants/icons/**/*.html"
+        "src/app/shared/constants/icons/**/*.html"
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended"

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IVideo, IItem } from './youtube/result-block/result-item/result-item.model';
+import { IVideo, IItem } from '../youtube/result-block/result-item/result-item.model';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-core',
+  templateUrl: './core.component.html',
+  styleUrls: ['./core.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class CoreComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   items!: IItem[];
@@ -15,12 +15,6 @@ export class AppComponent implements OnInit {
   result!: IItem[];
 
   title = 'youtube-client';
-
-  isShowFilters = false;
-
-  isShowResults = false;
-
-  searchValue = '';
 
   sortDate = 'asc';
 
@@ -32,18 +26,6 @@ export class AppComponent implements OnInit {
       this.items = data.items;
     });
   }
-
-  setSearchValue = (value: string) => {
-    this.searchValue = value;
-  };
-
-  toggleShowFilter = () => {
-    this.isShowFilters = !this.isShowFilters;
-  };
-
-  handleSearch = () => {
-    this.isShowResults = !!this.searchValue;
-  };
 
   handleSortDate = () => {
     if (this.sortDate === 'asc') {

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FilterService } from '../services/youtube.service';
 
 @Component({
   selector: 'app-filtering',
@@ -6,7 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./filtering.component.scss'],
 })
 export class FilteringComponent {
-  @Input() isShowFilters!: boolean;
+  constructor(
+    public filterService: FilterService,
+  ) {}
+
+  // isShowFilters = this.filterService.isShowFilters;
+
+  // @Input() isShowFilters!: boolean;
 
   @Input() handleSortDate!: Function;
 
