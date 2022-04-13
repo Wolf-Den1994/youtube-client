@@ -8,10 +8,35 @@
   gap: 10px;
 }
 
+.header-logout {
+  position: relative;
+}
+
 .header-login {
   position: absolute;
   right: 10px;
   top: 20px;
+
+  &__logout {
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+    pointer-events: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+
+  &:hover {
+    .header-login__logout {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: visible;
+    }
+  }
 }
 
 .header-search {

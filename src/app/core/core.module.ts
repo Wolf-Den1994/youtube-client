@@ -12,6 +12,7 @@ import { SettingsComponent } from './header/components/settings/settings.compone
 import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { LogoutComponent } from './header/components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     SettingsComponent,
     LoginComponent,
     PageNotFoundComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,14 @@ export class AuthService {
     this.login = value;
   };
 
+  logoutHandle = () => {
+    const tokenId = window.localStorage.getItem('youtube-login');
+    if (tokenId) {
+      window.localStorage.removeItem('youtube-login');
+      this.router.navigate(['/auth']);
+    }
+  };
+
   passwordHandle = (value: string) => {
     this.password = value;
   };

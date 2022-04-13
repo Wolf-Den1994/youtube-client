@@ -1,11 +1,16 @@
-<header class="header">
-  <div
-    class="header-search"
-    *ngIf="youtubeService.isShowHeader"
-  >
+<header
+  class="header"
+  *ngIf="youtubeService.isShowHeader"
+>
+  <div class="header-search">
     <app-logo></app-logo>
     <app-search-field></app-search-field>
     <app-settings [changeShowFilter]="changeShowFilter"></app-settings>
   </div>
-  <app-login class="header-login"></app-login>
+  <div class="header-login">
+    <app-login></app-login>
+    <div class="header-logout">
+      <app-logout class="header-login__logout"></app-logout>
+    </div>
+  </div>
 </header>
