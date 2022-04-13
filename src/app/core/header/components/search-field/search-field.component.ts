@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FilterService } from '../../../youtube/services/youtube.service';
+import { YoutubeService } from '../../../../youtube/services/youtube.service';
 
 @Component({
   selector: 'app-search-field',
@@ -8,7 +8,7 @@ import { FilterService } from '../../../youtube/services/youtube.service';
 })
 export class SearchFieldComponent {
   constructor(
-    public filterService: FilterService,
+    public youtubeService: YoutubeService,
   ) {}
 
   @Input() changeSearchValue!: Function;
@@ -16,12 +16,10 @@ export class SearchFieldComponent {
   @Input() startSearch!: Function;
 
   inputHandle = (value: string) => {
-    this.filterService.setSearchValue(value);
-    // this.changeSearchValue(value);
+    this.youtubeService.setSearchValue(value);
   };
 
   handleSearch = () => {
-    // this.startSearch();
-    this.filterService.handleSearch();
+    this.youtubeService.handleSearch();
   };
 }

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IItem } from '../result-block/result-item/result-item.model';
+import { IItem } from '../models/youtube-video.model';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class FilterService {
+export class YoutubeService {
   isShowFilters = false;
 
   isShowResults = false;

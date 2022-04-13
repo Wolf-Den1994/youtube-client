@@ -1,12 +1,12 @@
 <app-filtering></app-filtering>
 <div
   class="wrapper-content"
-  *ngIf="filterService.isShowResults"
+  *ngIf="youtubeService.isShowResults"
 >
   <div class="content">
     <app-result-block
       class="data-wrapper"
-      [items]="filterService.items"
+      [items]="youtubeService.items"
     ></app-result-block>
   </div>
 </div>

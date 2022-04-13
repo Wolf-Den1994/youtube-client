@@ -5,10 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreComponent } from './core.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './header/login/login.component';
-import { LogoComponent } from './header/logo/logo.component';
-import { SearchFieldComponent } from './header/search-field/search-field.component';
-import { SettingsComponent } from './header/settings/settings.component';
+import { LoginComponent } from './header/components/login/login.component';
+import { LogoComponent } from './header/components/logo/logo.component';
+import { SearchFieldComponent } from './header/components/search-field/search-field.component';
+import { SettingsComponent } from './header/components/settings/settings.component';
 import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { FilterService } from '../../youtube/services/youtube.service';
+import { Component } from '@angular/core';
+import { YoutubeService } from '../../youtube/services/youtube.service';
 
 @Component({
   selector: 'app-header',
@@ -8,27 +8,10 @@ import { FilterService } from '../../youtube/services/youtube.service';
 })
 export class HeaderComponent {
   constructor(
-    private filterService: FilterService,
+    private youtubeService: YoutubeService,
   ) {}
 
   changeShowFilter = () => {
-    console.log('this.filterService', this.filterService);
-    // this.filterService.isShowFilters = !this.filterService.isShowFilters;
-    this.filterService.toggleShowFilter();
-    // this.toggleShowFilter();
-  };
-
-  // @Input() toggleShowFilter!: Function;
-
-  @Input() setSearchValue!: Function;
-
-  @Input() handleSearch!: Function;
-
-  changeSearchValue = (value: string) => {
-    this.setSearchValue(value);
-  };
-
-  startSearch = () => {
-    this.handleSearch();
+    this.youtubeService.toggleShowFilter();
   };
 }

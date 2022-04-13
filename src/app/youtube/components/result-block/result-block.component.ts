@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IItem } from './result-item/result-item.model';
+import { IItem } from '../../models/youtube-video.model';
 
 @Component({
   selector: 'app-result-block',

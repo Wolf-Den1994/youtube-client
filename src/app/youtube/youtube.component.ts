@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FilterService } from './services/youtube.service';
-import { IVideo } from './result-block/result-item/result-item.model';
+import { YoutubeService } from './services/youtube.service';
+import { IVideo } from './models/youtube-video.model';
 
 @Component({
   selector: 'app-youtube',
@@ -10,14 +10,14 @@ import { IVideo } from './result-block/result-item/result-item.model';
 })
 export class YoutubeComponent implements OnInit {
   constructor(
-    public filterService: FilterService,
+    public youtubeService: YoutubeService,
     private http: HttpClient,
   ) {}
 
   ngOnInit() {
     this.http.get<IVideo>('assets/mocks/response.json').subscribe((data) => {
-      this.filterService.result = data.items;
-      this.filterService.items = data.items;
+      this.youtubeService.result = data.items;
+      this.youtubeService.items = data.items;
     });
   }
 }
