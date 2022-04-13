@@ -11,6 +11,7 @@ import { SearchFieldComponent } from './header/components/search-field/search-fi
 import { SettingsComponent } from './header/components/settings/settings.component';
 import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CoreRoutingModule } from './core-routing.module';
     SearchFieldComponent,
     SettingsComponent,
     LoginComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
