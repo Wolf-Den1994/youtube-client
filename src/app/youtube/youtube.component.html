@@ -4,10 +4,9 @@
   *ngIf="filterService.isShowResults"
 >
   <div class="content">
-    4
-<!--    <app-result-block-->
-<!--      class="data-wrapper"-->
-<!--      [items]="items"-->
-<!--    ></app-result-block>-->
+    <app-result-block
+      class="data-wrapper"
+      [items]="filterService.items"
+    ></app-result-block>
   </div>
 </div>

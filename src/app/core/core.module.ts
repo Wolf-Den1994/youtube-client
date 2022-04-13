@@ -29,9 +29,9 @@ import { CoreRoutingModule } from './core-routing.module';
     HttpClientModule,
     SharedModule,
   ],
-  bootstrap: [CoreComponent],
   exports: [
     HeaderComponent,
   ],
+  bootstrap: [CoreComponent],
 })
 export class CoreModule { }
