@@ -1,0 +1,33 @@
+<div class="detail">
+  <div class="detail-back">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="backToHome()"
+    >
+      &lt;
+    </button>
+  </div>
+  <div class="detail-image">
+    <img [src]="item?.snippet?.thumbnails?.standard?.url" alt="preview">
+  </div>
+  <div class="detail-article">
+    <div class="detail-top">
+      <div class="detail-header">
+        <div class="detail-title">{{item?.snippet?.title}}</div>
+        <div class="detail-date">{{item?.snippet?.publishedAt | date:'EEEE, LLLL dd yyyy'}}</div>
+      </div>
+      <div class="detail-description-wrapper">
+        <div class="detail-description-title">Description</div>
+        <div class="detail-description">{{item?.snippet?.description}}</div>
+      </div>
+    </div>
+    <div class="detail-bottom">
+      <app-views-count [view]="item?.statistics?.viewCount"></app-views-count>
+      <app-likes-count [like]="item?.statistics?.likeCount"></app-likes-count>
+      <app-dislikes-count [dislike]="item?.statistics?.dislikeCount"></app-dislikes-count>
+      <app-comments-count [comment]="item?.statistics?.commentCount"></app-comments-count>
+    </div>
+    <div class="card-line" [appColor]="publishedAt"></div>
+  </div>
+</div>

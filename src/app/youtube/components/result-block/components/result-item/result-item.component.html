@@ -7,6 +7,9 @@
     <app-comments-count [comment]="comment"></app-comments-count>
   </div>
   <app-video-title [title]="title"></app-video-title>
-  <app-more-button class="card-button"></app-more-button>
+  <app-more-button
+    class="card-button"
+    [id]="id"
+  ></app-more-button>
   <div class="card-line" [appColor]="publishedAt"></div>
 </div>

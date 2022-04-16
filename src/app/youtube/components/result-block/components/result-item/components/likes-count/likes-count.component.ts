@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./likes-count.component.scss'],
 })
 export class LikesCountComponent {
-  @Input() like!: string;
+  @Input() like?: string;
 }

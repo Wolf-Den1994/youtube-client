@@ -16,6 +16,7 @@ import { DislikesCountComponent } from './components/result-block/components/res
 import { VideoTitleComponent } from './components/result-block/components/result-item/components/video-title/video-title.component';
 import { MoreButtonComponent } from './components/result-block/components/result-item/components/more-button/more-button.component';
 import { ColorLineDirective } from './directives/color-line.directive';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ColorLineDirective } from './directives/color-line.directive';
     VideoTitleComponent,
     MoreButtonComponent,
     ColorLineDirective,
+    DetailComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,8 @@ import { ColorLineDirective } from './directives/color-line.directive';
     DislikesCountComponent,
     VideoTitleComponent,
     MoreButtonComponent,
+    ColorLineDirective,
+    DetailComponent,
   ],
 })
 export class YoutubeModule { }

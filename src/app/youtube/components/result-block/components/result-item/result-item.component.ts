@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ResultItemComponent {
+  @Input() id!: string;
+
   @Input() src!: string;
 
   @Input() view!: string;

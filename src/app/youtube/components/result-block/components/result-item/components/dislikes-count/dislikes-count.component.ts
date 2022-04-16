@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./dislikes-count.component.scss'],
 })
 export class DislikesCountComponent {
-  @Input() dislike!: string;
+  @Input() dislike?: string;
 }

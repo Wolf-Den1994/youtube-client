@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./comments-count.component.scss'],
 })
 export class CommentsCountComponent {
-  @Input() comment!: string;
+  @Input() comment?: string;
 }

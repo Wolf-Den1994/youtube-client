@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./views-count.component.scss'],
 })
 export class ViewsCountComponent {
-  @Input() view!: string;
+  @Input() view!: string | undefined;
 }

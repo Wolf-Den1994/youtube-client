@@ -15,6 +15,7 @@ export class ColorLineDirective implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('this.publishedAt', this.publishedAt);
     if (!this.publishedAt) return;
     const date = new Date(this.publishedAt);
     const secInOneWeek = 604800000;
