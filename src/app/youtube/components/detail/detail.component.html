@@ -28,6 +28,6 @@
       <app-dislikes-count [dislike]="item?.statistics?.dislikeCount"></app-dislikes-count>
       <app-comments-count [comment]="item?.statistics?.commentCount"></app-comments-count>
     </div>
-    <div class="card-line" [appColor]="publishedAt"></div>
+    <div class="card-line" [appColor]="item?.snippet?.publishedAt"></div>
   </div>
 </div>

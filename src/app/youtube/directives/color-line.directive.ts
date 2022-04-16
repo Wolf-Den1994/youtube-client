@@ -1,5 +1,5 @@
 import {
-  Directive, Input, OnInit, ElementRef, Renderer2,
+  Directive, Input, OnInit, ElementRef, HostBinding, Renderer2,
 } from '@angular/core';
 
 @Directive({
@@ -14,8 +14,16 @@ export class ColorLineDirective implements OnInit {
     private renderer: Renderer2,
   ) {}
 
+  @HostBinding('attr.appColor') get publishedAtForColor() {
+    this.color();
+    return this.publishedAt;
+  }
+
   ngOnInit() {
-    console.log('this.publishedAt', this.publishedAt);
+    this.color();
+  }
+
+  color = () => {
     if (!this.publishedAt) return;
     const date = new Date(this.publishedAt);
     const secInOneWeek = 604800000;
@@ -36,5 +44,5 @@ export class ColorLineDirective implements OnInit {
       this.renderer.addClass(this.elementRef.nativeElement, 'blue');
       this.renderer.setStyle(this.elementRef.nativeElement, 'background', '#2F80ED');
     }
-  }
+  };
 }

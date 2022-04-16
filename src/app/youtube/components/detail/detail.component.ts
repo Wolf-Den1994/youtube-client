@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IItem, IVideo } from '../../models/youtube-video.model';
@@ -19,14 +21,10 @@ export class DetailComponent implements OnInit {
 
   items!: IItem[];
 
-  publishedAt!: string;
-
   ngOnInit() {
     this.http.get<IVideo>('assets/mocks/response.json').subscribe(({ items }) => {
       this.items = items;
       this.item = this.items.find(({ id }) => id === this.route.snapshot.params['id']);
-      this.publishedAt = this.item?.snippet?.publishedAt!;
-      console.log('this.publishedAt', this.publishedAt);
       if (!this.item) this.router.navigate(['error']);
     });
   }
