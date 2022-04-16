@@ -5,14 +5,14 @@ import { AuthGuard } from '../auth/guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('../youtube/youtube.module').then((m) => m.YoutubeModule),
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'auth',
     loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
     pathMatch: 'full',
+  },
+  {
+    path: '',
+    loadChildren: () => import('../youtube/youtube.module').then((m) => m.YoutubeModule),
+    canActivate: [AuthGuard],
   },
   { path: '**', component: PageNotFoundComponent },
 ];

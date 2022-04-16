@@ -9,7 +9,7 @@ const routes: Routes = [
     component: YoutubeComponent,
   },
   {
-    path: ':id',
+    path: 'detail/:id',
     component: DetailComponent,
   },
 ];
