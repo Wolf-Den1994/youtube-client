@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IItem, IVideo } from '../models/youtube-video.model';
-import { IVideoHttp } from '../models/youtube-http.model';
-import { Query, URL_VIDEO, URL_VIDEOS } from '../../../utils/constants';
+import { switchMap, map } from 'rxjs/operators';
+import { IItem } from '../models/youtube-video.model';
+import { ApiService } from '../../shared/services/api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +11,7 @@ import { Query, URL_VIDEO, URL_VIDEOS } from '../../../utils/constants';
 export class YoutubeService {
   constructor(
     private http: HttpClient,
+    private apiService: ApiService,
   ) {}
 
   isShowHeader = true;
@@ -24,8 +25,6 @@ export class YoutubeService {
   items!: IItem[];
 
   result!: IItem[];
-
-  itemIds: string[] = [];
 
   sortDate = 'asc';
 
@@ -46,17 +45,18 @@ export class YoutubeService {
   setSearchValue(value: string) {
     this.searchValue = value;
 
-    this.http.get<IVideoHttp>(`${URL_VIDEO}&q=${this.searchValue}`)
-      .subscribe(({ items }) => {
-        this.itemIds = items.map(({ id }) => id.videoId);
-        this.http.get<IVideo>(`${URL_VIDEOS}&id=${this.itemIds.join(',')}&part=${Query.Part}`)
-          .subscribe(({ items: videosItems }) => {
+    return this.apiService.getVideosId(this.searchValue).pipe(
+      switchMap(({ items }) => {
+        const itemIds = items.map(({ id }) => id.videoId);
+        return this.apiService.getVideoItems(itemIds).pipe(
+          map(({ items: videosItems }) => {
             this.result = videosItems;
             this.items = videosItems;
-
             this.isShowResults = !!this.searchValue;
-          });
-      });
+          }),
+        );
+      }),
+    ).subscribe();
   }
 
   handleSortDate() {
