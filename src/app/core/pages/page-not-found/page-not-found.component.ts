@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { YoutubeService } from '../../../youtube/services/youtube.service';
 
 @Component({
@@ -9,9 +10,14 @@ import { YoutubeService } from '../../../youtube/services/youtube.service';
 export class PageNotFoundComponent implements OnInit {
   constructor(
     public youtubeService: YoutubeService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.youtubeService.isShowHeader = false;
   }
+
+  backToHome = () => {
+    this.router.navigate(['']);
+  };
 }
