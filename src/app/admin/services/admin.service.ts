@@ -13,9 +13,9 @@ export class AdminService {
     private youtubeService: YoutubeService,
   ) {}
 
-  goAdminPage = () => {
+  goAdminPage() {
     this.router.navigate(['/admin']);
-  };
+  }
 
   create = (data: IItem) => {
     this.youtubeService.result.push(data);

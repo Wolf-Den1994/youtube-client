@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { YoutubeService } from '../../../../services/youtube.service';
 
 @Component({
   selector: 'app-input',
@@ -6,12 +7,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Input() startFilter!: Function;
+  constructor(
+    public youtubeService: YoutubeService,
+  ) {}
 
   value = '';
 
   inputHandle(newValue: string) {
     this.value = newValue;
-    this.startFilter(newValue);
+    this.youtubeService.handleFilterWords(newValue);
   }
 }

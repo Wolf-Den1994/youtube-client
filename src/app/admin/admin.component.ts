@@ -41,22 +41,22 @@ export class AdminComponent implements OnInit {
 
   directDate = false;
 
-  changeDirect = () => {
+  changeDirect() {
     this.directDate = true;
-  };
+  }
 
-  submit = () => {
+  submit() {
     if (this.form.valid) {
       this.adminService.create(this.form.value);
       this.directDate = false;
     }
-  };
+  }
 
   ngOnInit() {
     this.youtubeService.isShowHeader = false;
   }
 
-  backToHome = () => {
+  backToHome() {
     this.router.navigate(['']);
-  };
+  }
 }

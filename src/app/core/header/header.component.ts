@@ -10,8 +10,4 @@ export class HeaderComponent {
   constructor(
     public youtubeService: YoutubeService,
   ) {}
-
-  changeShowFilter = () => {
-    this.youtubeService.toggleShowFilter();
-  };
 }

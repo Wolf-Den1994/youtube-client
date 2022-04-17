@@ -19,7 +19,7 @@ export class SearchFieldComponent {
     this.youtubeService.setSearchValue(value);
   };
 
-  handleSearch = () => {
+  handleSearch() {
     this.youtubeService.handleSearch();
-  };
+  }
 }

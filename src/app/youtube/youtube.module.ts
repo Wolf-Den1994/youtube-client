@@ -4,7 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { YoutubeComponent } from './youtube.component';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { FilteringComponent } from './components/filtering/filtering.component';
-import { ButtonsComponent } from './components/filtering/components/buttons/buttons.component';
+import { ButtonSortComponent } from './components/filtering/components/button-sort/button-sort.component';
 import { InputComponent } from './components/filtering/components/input/input.component';
 import { ResultBlockComponent } from './components/result-block/result-block.component';
 import { ResultItemComponent } from './components/result-block/components/result-item/result-item.component';
@@ -22,7 +22,7 @@ import { DetailComponent } from './components/detail/detail.component';
   declarations: [
     YoutubeComponent,
     FilteringComponent,
-    ButtonsComponent,
+    ButtonSortComponent,
     InputComponent,
     ResultBlockComponent,
     ResultItemComponent,

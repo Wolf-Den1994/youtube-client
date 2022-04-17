@@ -31,7 +31,7 @@ export class AuthComponent implements OnInit {
     this.youtubeService.isShowHeader = false;
   }
 
-  submit = () => {
+  submit() {
     if (this.form.valid) this.authService.comeIn();
-  };
+  }
 }

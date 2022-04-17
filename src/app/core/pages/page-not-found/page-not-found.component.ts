@@ -17,7 +17,7 @@ export class PageNotFoundComponent implements OnInit {
     this.youtubeService.isShowHeader = false;
   }
 
-  backToHome = () => {
+  backToHome() {
     this.router.navigate(['']);
-  };
+  }
 }

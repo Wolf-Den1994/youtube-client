@@ -14,28 +14,30 @@ export class AuthService {
 
   password = '';
 
-  loginHandle = (value: string) => {
+  loginHandle(value: string) {
     this.login = value;
-  };
+  }
 
-  logoutHandle = () => {
+  logoutHandle() {
     const tokenId = window.localStorage.getItem('youtube-login');
     if (tokenId) {
       window.localStorage.removeItem('youtube-login');
       this.router.navigate(['/auth']);
     }
-  };
+  }
 
-  passwordHandle = (value: string) => {
+  passwordHandle(value: string) {
     this.password = value;
-  };
+  }
 
-  comeIn = () => {
+  comeIn() {
     if (this.login && this.password) {
       window.localStorage.setItem('youtube-login', 'tokenId');
       this.router.navigate(['']);
     }
-  };
+  }
 
-  isLogged = () => !!window.localStorage.getItem('youtube-login');
+  isLogged() {
+    return !!window.localStorage.getItem('youtube-login');
+  }
 }

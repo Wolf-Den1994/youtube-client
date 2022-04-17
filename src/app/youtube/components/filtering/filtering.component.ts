@@ -10,16 +10,4 @@ export class FilteringComponent {
   constructor(
     public youtubeService: YoutubeService,
   ) {}
-
-  startSort = (content: string) => {
-    if (content === 'Date') {
-      this.youtubeService.handleSortDate();
-    } else {
-      this.youtubeService.handleSortViews();
-    }
-  };
-
-  startFilter = (query: string) => {
-    this.youtubeService.handleFilterWords(query);
-  };
 }

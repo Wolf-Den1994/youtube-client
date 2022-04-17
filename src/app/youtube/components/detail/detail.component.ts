@@ -25,13 +25,13 @@ export class DetailComponent implements OnInit {
       .get<IVideo>('assets/mocks/response.json')
       .subscribe(({ items }) => {
         this.item = items.find(
-          ({ id }) => id === this.route.snapshot.params['id']
+          ({ id }) => id === this.route.snapshot.params['id'],
         );
         if (!this.item) this.router.navigate(['error']);
       });
   }
 
-  backToHome = () => {
+  backToHome() {
     this.router.navigate(['']);
-  };
+  }
 }

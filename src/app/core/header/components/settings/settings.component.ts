@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { YoutubeService } from '../../../../youtube/services/youtube.service';
 
 @Component({
   selector: 'app-settings',
@@ -6,11 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  @Input() isShowFilters!: boolean;
+  constructor(
+    public youtubeService: YoutubeService,
+  ) {}
 
-  @Input() changeShowFilter!: Function;
-
-  handleShowFilter = () => {
-    this.changeShowFilter();
-  };
+  handleShowFilter() {
+    this.youtubeService.toggleShowFilter();
+  }
 }

@@ -13,7 +13,7 @@ export class MoreButtonComponent {
 
   @Input() id!: string;
 
-  showMore = () => {
+  showMore() {
     this.router.navigate([`detail/${this.id}`]);
-  };
+  }
 }
