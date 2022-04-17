@@ -15,6 +15,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LogoutComponent } from './header/components/logout/logout.component';
 import { AdminButtonComponent } from './header/components/admin-button/admin-button.component';
+import { httpInterceptorProviders } from '../auth/interceptor/providers';
 
 @NgModule({
   declarations: [
@@ -41,5 +42,8 @@ import { AdminButtonComponent } from './header/components/admin-button/admin-but
     HeaderComponent,
   ],
   bootstrap: [CoreComponent],
+  providers: [
+    httpInterceptorProviders,
+  ],
 })
 export class CoreModule { }

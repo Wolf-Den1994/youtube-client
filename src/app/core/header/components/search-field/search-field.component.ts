@@ -17,7 +17,7 @@ export class SearchFieldComponent implements OnInit {
 
   ngOnInit() {
     this.searchWord.pipe(
-      debounceTime(3000),
+      debounceTime(1100),
       distinctUntilChanged(),
     ).subscribe((ev: Event) => {
       const querySearch = (ev.target as HTMLInputElement).value;
