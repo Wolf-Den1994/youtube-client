@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { YoutubeService } from '../../../../services/youtube.service';
 
 @Component({

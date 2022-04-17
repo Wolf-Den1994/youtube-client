@@ -31,7 +31,7 @@ export class ColorLineDirective implements OnChanges {
     const today = new Date(
       now.getFullYear(),
       now.getMonth(),
-      now.getDate()
+      now.getDate(),
     ).valueOf();
     const dateString = date.valueOf();
     if (dateString < today - secInSixMonth) {
@@ -43,7 +43,7 @@ export class ColorLineDirective implements OnChanges {
       this.renderer.setStyle(
         this.elementRef.nativeElement,
         'background',
-        '#27AE60'
+        '#27AE60',
       );
     }
     if (dateString > today - secInOneWeek) {
@@ -51,7 +51,7 @@ export class ColorLineDirective implements OnChanges {
       this.renderer.setStyle(
         this.elementRef.nativeElement,
         'background',
-        '#2F80ED'
+        '#2F80ED',
       );
     }
   }

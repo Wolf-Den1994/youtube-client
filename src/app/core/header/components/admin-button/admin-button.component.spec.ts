@@ -8,9 +8,9 @@ describe('AdminButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminButtonComponent ]
+      declarations: [AdminButtonComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
