@@ -5,6 +5,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IItem, IVideo } from '../../models/youtube-video.model';
+import { API_KEY, URL_SERVER } from '../../../../utils/constants';
 
 @Component({
   selector: 'app-detail',
@@ -22,11 +23,10 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.http
-      .get<IVideo>('assets/mocks/response.json')
+      .get<IVideo>(`${URL_SERVER}/videos?key=${API_KEY}&id=${this.route.snapshot.params['id']}&part=snippet,statistics`)
       .subscribe(({ items }) => {
-        this.item = items.find(
-          ({ id }) => id === this.route.snapshot.params['id'],
-        );
+        const [item] = items;
+        this.item = item;
         if (!this.item) this.router.navigate(['error']);
       });
   }
