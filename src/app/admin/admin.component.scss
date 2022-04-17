@@ -1,0 +1,76 @@
+.admin-page {
+  padding: 50px 10px;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  .admin-wrapper {
+    padding: 20px;
+    width: 265px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+
+    background-color: #313131;
+    border-radius: 0 6px 6px 6px;
+
+    h3 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .label {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+      color: #fff;
+
+      .alert {
+        color: #f95959;
+      }
+
+      input {
+        font-size: 14px;
+        width: 200px;
+        padding: 10px;
+
+        border: none;
+        outline: none;
+
+        border-radius: 4px;
+        background: #EFEFEF;
+
+        &.error {
+          border: 1px solid #f95959;
+          background-color: #ffeeee;
+        }
+      }
+    }
+  }
+
+  .mat-focus-indicator {
+    &.mat-raised-button {
+      &.mat-button-base {
+        &.mat-primary {
+          border-radius: 4px 0 0 4px;
+        }
+      }
+    }
+  }
+}

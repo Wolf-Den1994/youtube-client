@@ -1,36 +1,38 @@
 import {
-  Directive, Input, OnInit, ElementRef, HostBinding, Renderer2,
+  Directive,
+  Input,
+  OnChanges,
+  ElementRef,
+  Renderer2,
+  SimpleChanges,
 } from '@angular/core';
 
 @Directive({
   selector: '[appColor]',
 })
+export class ColorLineDirective implements OnChanges {
+  @Input() appColor?: string;
 
-export class ColorLineDirective implements OnInit {
-  @Input('appColor') publishedAt?: string;
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
-  constructor(
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
-  ) {}
-
-  @HostBinding('attr.appColor') get publishedAtForColor() {
-    this.color();
-    return this.publishedAt;
+  ngOnChanges(changes: SimpleChanges) {
+    if ('appColor' in changes) {
+      this.color();
+    }
   }
 
-  ngOnInit() {
-    this.color();
-  }
-
-  color = () => {
-    if (!this.publishedAt) return;
-    const date = new Date(this.publishedAt);
+  private color() {
+    if (!this.appColor) return;
+    const date = new Date(this.appColor);
     const secInOneWeek = 604800000;
     const secInOneMonth = 2419200000;
     const secInSixMonth = 15638400000;
     const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).valueOf();
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    ).valueOf();
     const dateString = date.valueOf();
     if (dateString < today - secInSixMonth) {
       this.renderer.addClass(this.elementRef.nativeElement, 'red');
@@ -38,11 +40,19 @@ export class ColorLineDirective implements OnInit {
     }
     if (dateString > today - secInOneMonth) {
       this.renderer.addClass(this.elementRef.nativeElement, 'green');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'background', '#27AE60');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'background',
+        '#27AE60'
+      );
     }
     if (dateString > today - secInOneWeek) {
       this.renderer.addClass(this.elementRef.nativeElement, 'blue');
-      this.renderer.setStyle(this.elementRef.nativeElement, 'background', '#2F80ED');
+      this.renderer.setStyle(
+        this.elementRef.nativeElement,
+        'background',
+        '#2F80ED'
+      );
     }
-  };
+  }
 }

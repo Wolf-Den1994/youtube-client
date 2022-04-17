@@ -1,5 +1,6 @@
 import {
-  Component, OnInit,
+  Component,
+  OnInit,
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,14 +20,15 @@ export class DetailComponent implements OnInit {
 
   item?: IItem;
 
-  items!: IItem[];
-
   ngOnInit() {
-    this.http.get<IVideo>('assets/mocks/response.json').subscribe(({ items }) => {
-      this.items = items;
-      this.item = this.items.find(({ id }) => id === this.route.snapshot.params['id']);
-      if (!this.item) this.router.navigate(['error']);
-    });
+    this.http
+      .get<IVideo>('assets/mocks/response.json')
+      .subscribe(({ items }) => {
+        this.item = items.find(
+          ({ id }) => id === this.route.snapshot.params['id']
+        );
+        if (!this.item) this.router.navigate(['error']);
+      });
   }
 
   backToHome = () => {

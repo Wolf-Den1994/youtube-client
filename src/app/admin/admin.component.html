@@ -1,0 +1,154 @@
+<div class="admin-page">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="backToHome()"
+  >
+    &lt;
+  </button>
+  <div class="admin-wrapper">
+    <h3>Create new card</h3>
+    <form
+      class="login-form"
+      [formGroup]="form"
+      novalidate
+      (ngSubmit)="submit()"
+    >
+      <label class="label">
+        <input
+          type="text"
+          placeholder="title"
+          formControlName="title"
+          [class]="{
+            error: form.controls['title'].errors?.['required']
+                || form.controls['title'].errors?.['minlength']
+                && form.controls['title'].touched
+                || form.controls['title'].errors?.['maxlength']
+                && form.controls['title'].touched
+          }"
+        >
+        <div class="alert alert-danger"
+             *ngIf="form.controls['title'].errors?.['required']"
+        >
+          Please enter a title
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['title'].errors?.['minlength']
+                && form.controls['title'].touched"
+        >
+          The title is too short
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['title'].errors?.['maxlength']
+                && form.controls['title'].touched"
+        >
+          The title is too long
+        </div>
+      </label>
+      <label class="label">
+        <input
+          type="text"
+          placeholder="description"
+          formControlName="description"
+          [class]="{
+            error: form.controls['description'].errors?.['maxlength']
+                && form.controls['description'].touched
+          }"
+        >
+        <div class="alert alert-danger"
+             *ngIf="form.controls['description'].errors?.['maxlength']
+                && form.controls['description'].touched"
+        >
+          The description is too long
+        </div>
+      </label>
+      <label class="label">
+        <input
+          type="text"
+          placeholder="img"
+          formControlName="img"
+          [class]="{
+            error: form.controls['img'].errors?.['required']
+                || form.controls['img'].errors?.['pattern']
+                && form.controls['img'].touched
+          }"
+        >
+        <div class="alert alert-danger"
+             *ngIf="form.controls['img'].errors?.['required']"
+        >
+          Please enter a link to the image
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['img'].errors?.['pattern']
+                && form.controls['img'].dirty"
+        >
+          The image link is invalid
+        </div>
+      </label>
+      <label class="label">
+        <input
+          type="text"
+          placeholder="video"
+          formControlName="video"
+          [class]="{
+            error: form.controls['video'].errors?.['required']
+                || form.controls['video'].errors?.['pattern']
+                && form.controls['video'].touched
+          }"
+        >
+        <div class="alert alert-danger"
+             *ngIf="form.controls['video'].errors?.['required']"
+        >
+          Please enter a link to the video
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['video'].errors?.['pattern']
+                && form.controls['video'].dirty"
+        >
+          The video link is invalid
+        </div>
+      </label>
+      <label class="label">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="date"
+          readonly
+          formControlName="date"
+          [class]="{
+            error: form.controls['date'].errors?.['required']
+                || form.controls['date'].errors?.['pattern']
+                && form.controls['date'].touched
+          }"
+          (click)="changeDirect()"
+        >
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker"
+          style="position: absolute; top: -3px; right: 0; transition: transform 0.3s ease-in"
+          [style.transform]="directDate ? 'scale(1.6)' : 'scale(1)'"
+          [style.color]="directDate ? '#f95959' : '#0000008a'"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['date'].errors?.['required']"
+        >
+          Please enter a creation date
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="form.controls['date'].errors?.['minlength']
+                && form.controls['date'].dirty"
+        >
+          The date is invalid
+        </div>
+      </label>
+      <button
+        class="login-button"
+        mat-raised-button
+        color="primary"
+      >
+        Create card
+      </button>
+    </form>
+  </div>
+</div>
