@@ -14,7 +14,7 @@ export class PageNotFoundComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.youtubeService.isShowHeader = false;
+    this.youtubeService.hideHeader();
   }
 
   backToHome() {

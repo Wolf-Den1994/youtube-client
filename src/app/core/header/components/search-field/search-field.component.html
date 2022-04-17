@@ -3,15 +3,7 @@
     <input
       type="text"
       placeholder="Search"
-      #searchInput
-      (input)="inputHandle(searchInput.value)"
+      (input)="searchWord.next($event)"
     >
   </label>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="handleSearch()"
-  >
-    <mat-icon aria-hidden="false">search</mat-icon>
-  </button>
 </div>

@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.youtubeService.isShowHeader = false;
+    this.youtubeService.hideHeader();
   }
 
   submit() {

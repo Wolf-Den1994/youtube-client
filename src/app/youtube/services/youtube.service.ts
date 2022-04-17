@@ -31,11 +31,21 @@ export class YoutubeService {
 
   sortViews = 'asc';
 
+  showHeader() {
+    this.isShowHeader = true;
+  }
+
+  hideHeader() {
+    this.isShowHeader = false;
+  }
+
   toggleShowFilter() {
     this.isShowFilters = !this.isShowFilters;
   }
 
-  handleSearch() {
+  setSearchValue(value: string) {
+    this.searchValue = value;
+
     this.http.get<IVideoHttp>(`${URL_VIDEO}&q=${this.searchValue}`)
       .subscribe(({ items }) => {
         this.itemIds = items.map(({ id }) => id.videoId);
@@ -47,10 +57,6 @@ export class YoutubeService {
             this.isShowResults = !!this.searchValue;
           });
       });
-  }
-
-  setSearchValue(value: string) {
-    this.searchValue = value;
   }
 
   handleSortDate() {

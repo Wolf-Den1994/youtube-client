@@ -53,7 +53,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.youtubeService.isShowHeader = false;
+    this.youtubeService.hideHeader();
   }
 
   backToHome() {

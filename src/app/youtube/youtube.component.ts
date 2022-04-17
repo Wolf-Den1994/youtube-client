@@ -12,6 +12,6 @@ export class YoutubeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.youtubeService.isShowHeader = true;
+    this.youtubeService.showHeader();
   }
 }
