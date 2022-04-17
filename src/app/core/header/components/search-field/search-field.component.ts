@@ -11,10 +11,6 @@ export class SearchFieldComponent {
     public youtubeService: YoutubeService,
   ) {}
 
-  @Input() changeSearchValue!: Function;
-
-  @Input() startSearch!: Function;
-
   inputHandle = (value: string) => {
     this.youtubeService.setSearchValue(value);
   };

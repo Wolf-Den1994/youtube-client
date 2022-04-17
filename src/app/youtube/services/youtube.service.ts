@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { IItem } from '../models/youtube-video.model';
+import { HttpClient } from '@angular/common/http';
+import { IItem, IVideo } from '../models/youtube-video.model';
+import { IVideoHttp } from '../models/youtube-http.model';
+import { Query, URL_VIDEO, URL_VIDEOS } from '../../../utils/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class YoutubeService {
+  constructor(
+    private http: HttpClient,
+  ) {}
+
   isShowHeader = true;
 
   isShowFilters = false;
@@ -18,6 +25,8 @@ export class YoutubeService {
 
   result!: IItem[];
 
+  itemIds: string[] = [];
+
   sortDate = 'asc';
 
   sortViews = 'asc';
@@ -27,7 +36,17 @@ export class YoutubeService {
   }
 
   handleSearch() {
-    this.isShowResults = !!this.searchValue;
+    this.http.get<IVideoHttp>(`${URL_VIDEO}&q=${this.searchValue}`)
+      .subscribe(({ items }) => {
+        this.itemIds = items.map(({ id }) => id.videoId);
+        this.http.get<IVideo>(`${URL_VIDEOS}&id=${this.itemIds.join(',')}&part=${Query.Part}`)
+          .subscribe(({ items: videosItems }) => {
+            this.result = videosItems;
+            this.items = videosItems;
+
+            this.isShowResults = !!this.searchValue;
+          });
+      });
   }
 
   setSearchValue(value: string) {
