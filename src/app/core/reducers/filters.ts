@@ -2,7 +2,9 @@ import {
   createAction, createFeatureSelector, createReducer, createSelector, on,
 } from '@ngrx/store';
 
-export const toggleShowFilter = createAction('[FILTERS] toggleShowFilter');
+export const FILTER_KEY = 'filter';
+
+export const toggleShowFilter = createAction('[FILTERS] toggle show filter');
 
 export interface FilterState {
   isShowFilters: boolean;
@@ -20,7 +22,7 @@ export const filterReducer = createReducer(
   })),
 );
 
-export const featureSelector = createFeatureSelector<FilterState>('filter');
+export const featureSelector = createFeatureSelector<FilterState>(FILTER_KEY);
 export const isShowFilterSelector = createSelector(
   featureSelector,
   (state) => state.isShowFilters,

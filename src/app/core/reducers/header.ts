@@ -2,8 +2,8 @@ import {
   createAction, createFeatureSelector, createReducer, createSelector, on,
 } from '@ngrx/store';
 
-export const showHeader = createAction('[HEADER] showHeader');
-export const hideHeader = createAction('[HEADER] hideHeader');
+export const showHeader = createAction('[HEADER] show header');
+export const hideHeader = createAction('[HEADER] hide header');
 
 export interface HeaderState {
   isShowHeader: boolean;

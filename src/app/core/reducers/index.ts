@@ -6,16 +6,16 @@ import {
   MetaReducer,
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
-import { filterReducer, FilterState } from './filters';
+import { filterReducer, FilterState, FILTER_KEY } from './filters';
 import { headerReducer, HeaderState } from './header';
 
 export interface State {
-  filter: FilterState,
+  [FILTER_KEY]: FilterState,
   header: HeaderState,
 }
 
 export const reducers: ActionReducerMap<State> = {
-  filter: filterReducer,
+  [FILTER_KEY]: filterReducer,
   header: headerReducer,
 };
 
