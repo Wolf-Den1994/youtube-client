@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { YoutubeService } from '../youtube/services/youtube.service';
+import { Store } from '@ngrx/store';
 import { AdminService } from './services/admin.service';
+import { hideHeader } from '../core/reducers/header';
 
 @Component({
   selector: 'app-admin',
@@ -13,9 +14,9 @@ export class AdminComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private youtubeService: YoutubeService,
     private adminService: AdminService,
     private router: Router,
+    private store: Store,
   ) {
     this.form = new FormGroup({
       title: new FormControl('', [
@@ -53,7 +54,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.youtubeService.hideHeader();
+    this.store.dispatch(hideHeader());
   }
 
   backToHome() {

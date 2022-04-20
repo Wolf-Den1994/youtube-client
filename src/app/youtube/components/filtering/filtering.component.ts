@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { YoutubeService } from '../../services/youtube.service';
+import { Store } from '@ngrx/store';
+import { isShowFilterSelector } from '../../../core/reducers/filters';
 
 @Component({
   selector: 'app-filtering',
@@ -7,7 +8,9 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: ['./filtering.component.scss'],
 })
 export class FilteringComponent {
+  isShowFilters$ = this.store.select(isShowFilterSelector);
+
   constructor(
-    public youtubeService: YoutubeService,
+    private store: Store,
   ) {}
 }

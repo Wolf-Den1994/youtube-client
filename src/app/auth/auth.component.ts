@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { AuthService } from './services/auth.service';
-import { YoutubeService } from '../youtube/services/youtube.service';
+import { hideHeader } from '../core/reducers/header';
 
 @Component({
   selector: 'app-auth',
@@ -13,7 +14,7 @@ export class AuthComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private youtubeService: YoutubeService,
+    private store: Store,
   ) {
     this.form = new FormGroup({
       userEmail: new FormControl('', [
@@ -28,7 +29,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.youtubeService.hideHeader();
+    this.store.dispatch(hideHeader());
   }
 
   submit() {

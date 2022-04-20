@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { YoutubeService } from './services/youtube.service';
+import { showHeader } from '../core/reducers/header';
 
 @Component({
   selector: 'app-youtube',
@@ -9,9 +11,10 @@ import { YoutubeService } from './services/youtube.service';
 export class YoutubeComponent implements OnInit {
   constructor(
     public youtubeService: YoutubeService,
+    private store: Store,
   ) {}
 
   ngOnInit() {
-    this.youtubeService.showHeader();
+    this.store.dispatch(showHeader());
   }
 }

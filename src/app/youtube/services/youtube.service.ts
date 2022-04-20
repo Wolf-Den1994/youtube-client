@@ -14,10 +14,6 @@ export class YoutubeService {
     private apiService: ApiService,
   ) {}
 
-  isShowHeader = true;
-
-  isShowFilters = false;
-
   isShowResults = false;
 
   searchValue = '';
@@ -29,18 +25,6 @@ export class YoutubeService {
   sortDate = 'asc';
 
   sortViews = 'asc';
-
-  showHeader() {
-    this.isShowHeader = true;
-  }
-
-  hideHeader() {
-    this.isShowHeader = false;
-  }
-
-  toggleShowFilter() {
-    this.isShowFilters = !this.isShowFilters;
-  }
 
   setSearchValue(value: string) {
     this.searchValue = value;
