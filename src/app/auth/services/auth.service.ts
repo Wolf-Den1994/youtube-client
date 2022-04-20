@@ -47,6 +47,10 @@ export class AuthService {
   }
 
   isLogged() {
-    return !!window.localStorage.getItem('youtube-login');
+    if (window.localStorage.getItem('youtube-login')) {
+      this.authState$$.next(true);
+      return true;
+    }
+    return false;
   }
 }
