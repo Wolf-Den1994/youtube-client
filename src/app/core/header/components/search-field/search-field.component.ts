@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { YoutubeService } from '../../../../youtube/services/youtube.service';
+import { setSearchValue } from '../../../reducers/madeItem';
 
 @Component({
   selector: 'app-search-field',
@@ -10,7 +12,8 @@ import { YoutubeService } from '../../../../youtube/services/youtube.service';
 })
 export class SearchFieldComponent implements OnInit {
   constructor(
-    public youtubeService: YoutubeService,
+    private store: Store,
+    private router: Router,
   ) {}
 
   searchWord = new Subject<Event>();
@@ -22,7 +25,8 @@ export class SearchFieldComponent implements OnInit {
     ).subscribe((ev: Event) => {
       const querySearch = (ev.target as HTMLInputElement).value;
       if (querySearch.length >= 3) {
-        this.youtubeService.setSearchValue(querySearch);
+        this.store.dispatch(setSearchValue({ world: querySearch }));
+        this.router.navigate(['/']); // not working ???
       }
     });
   }

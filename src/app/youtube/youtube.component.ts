@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { isShowResultsSelector, searchItemsSelector } from '../core/reducers/madeItem';
 import { YoutubeService } from './services/youtube.service';
 import { showHeader } from '../core/reducers/header';
 
@@ -9,10 +11,17 @@ import { showHeader } from '../core/reducers/header';
   styleUrls: ['./youtube.component.scss'],
 })
 export class YoutubeComponent implements OnInit {
+  searchItems$ = this.store.select(searchItemsSelector);
+
+  isShowResults$ = this.store.select(isShowResultsSelector);
+
   constructor(
     public youtubeService: YoutubeService,
     private store: Store,
-  ) {}
+  ) {
+    // this.searchItems$ = this.store.select(searchItemsSelector);
+    console.log('this.searchItems$', this.searchItems$);
+  }
 
   ngOnInit() {
     this.store.dispatch(showHeader());

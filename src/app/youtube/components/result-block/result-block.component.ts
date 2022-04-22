@@ -7,5 +7,5 @@ import { IItem } from '../../models/youtube-video.model';
   styleUrls: ['./result-block.component.scss'],
 })
 export class ResultBlockComponent {
-  @Input() items!: IItem[];
+  @Input() items!: IItem[] | null;
 }
