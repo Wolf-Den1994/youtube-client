@@ -7,21 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ResultItemComponent {
-  @Input() id!: string;
-
-  @Input() src!: string;
-
-  @Input() view!: string;
-
-  @Input() like!: string;
-
-  @Input() dislike!: string;
-
-  @Input() comment!: string;
-
-  @Input() title!: string;
-
-  @Input() publishedAt!: string;
-
-  @Input() isCustom!: boolean;
+  @Input() item!: any;
 }
