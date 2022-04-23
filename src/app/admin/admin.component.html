@@ -115,19 +115,23 @@
           placeholder="date"
           readonly
           formControlName="date"
+          class="input-date"
           [class]="{
             error: form.controls['date'].errors?.['required']
                 || form.controls['date'].errors?.['pattern']
                 && form.controls['date'].touched
           }"
-          (click)="changeDirect()"
         >
         <mat-datepicker-toggle
           matSuffix
           [for]="picker"
-          style="position: absolute; top: -3px; right: 0; transition: transform 0.3s ease-in"
-          [style.transform]="directDate ? 'scale(1.6)' : 'scale(1)'"
-          [style.color]="directDate ? '#f95959' : '#0000008a'"
+          style="position: absolute;
+            top: -3px;
+            transition: transform 0.3s ease-in;
+            display: flex;
+            width: 200px;
+            justify-content: flex-end;
+            cursor: pointer;"
         ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <div class="alert alert-danger"

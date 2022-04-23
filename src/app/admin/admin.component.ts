@@ -40,16 +40,9 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  directDate = false;
-
-  changeDirect() {
-    this.directDate = true;
-  }
-
   submit() {
     if (this.form.valid) {
       this.adminService.create(this.form.value);
-      this.directDate = false;
     }
   }
 
