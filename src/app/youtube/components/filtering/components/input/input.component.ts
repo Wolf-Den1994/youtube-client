@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { YoutubeService } from '../../../../services/youtube.service';
 import { handleFilterWords } from '../../../../../redux/actions/actions';
 
 @Component({
@@ -10,7 +9,6 @@ import { handleFilterWords } from '../../../../../redux/actions/actions';
 })
 export class InputComponent {
   constructor(
-    public youtubeService: YoutubeService,
     private store: Store,
   ) {}
 
@@ -18,7 +16,6 @@ export class InputComponent {
 
   inputHandle(newValue: string) {
     this.value = newValue;
-    // this.store.dispatch(handleFilterWords());
-    // this.youtubeService.handleFilterWords(newValue); // !!!
+    this.store.dispatch(handleFilterWords({ word: newValue }));
   }
 }

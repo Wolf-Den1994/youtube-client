@@ -25,7 +25,7 @@ export class SearchFieldComponent implements OnInit {
     ).subscribe((ev: Event) => {
       const querySearch = (ev.target as HTMLInputElement).value;
       if (querySearch.length >= 3) {
-        this.store.dispatch(setSearchValue({ world: querySearch }));
+        this.store.dispatch(setSearchValue({ word: querySearch }));
         this.router.navigate(['/']);
       }
     });

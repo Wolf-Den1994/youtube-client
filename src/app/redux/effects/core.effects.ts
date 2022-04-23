@@ -18,7 +18,7 @@ export class CoreEffects {
 
   setSearchValue: Observable<Action> = createEffect(() => this.actions.pipe(
     ofType(setSearchValue),
-    switchMap(({ world }) => this.apiService.getVideosId(world).pipe(
+    switchMap(({ word }) => this.apiService.getVideosId(word).pipe(
       switchMap(({ items }) => {
         const itemIds = items.map(({ id }) => id.videoId);
         return this.apiService.getVideoItems(itemIds).pipe(

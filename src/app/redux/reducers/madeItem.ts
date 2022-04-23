@@ -2,10 +2,12 @@ import { createReducer, on } from '@ngrx/store';
 import {
   createItem, handleFilterWords, handleSortDate, handleSortViews, setSearchItems, setSearchValue,
 } from '../actions/actions';
+import { filter } from '../../utils/filter';
 import { ICard } from '../../models/card.model';
 
 export interface MadeItemState {
   items: ICard[];
+  result: ICard[];
   isShowResults: boolean;
   sortDate: string;
   sortViews: string;
@@ -13,6 +15,7 @@ export interface MadeItemState {
 
 export const initialState: MadeItemState = {
   items: [],
+  result: [],
   isShowResults: false,
   sortDate: 'asc',
   sortViews: 'asc',
@@ -23,6 +26,7 @@ export const madeItemReducer = createReducer(
   on(createItem, (state, { item }) => ({
     ...state,
     items: [...state.items, item],
+    result: [...state.items, item],
     isShowResults: !!state.items.length,
   })),
   on(setSearchValue, (state) => ({
@@ -31,6 +35,7 @@ export const madeItemReducer = createReducer(
   on(setSearchItems, (state, { items }) => ({
     ...state,
     items,
+    result: items,
     isShowResults: !!items.length,
   })),
   on(handleSortDate, (state) => {
@@ -63,8 +68,11 @@ export const madeItemReducer = createReducer(
       items: copy.sort((a, b) => (+a.view > +b.view ? -1 : 1)),
     };
   }),
-  // on(handleFilterWords, (state) => {
-  //   const copy = [...state.items];
-  //
-  // }),
+  on(handleFilterWords, (state, { word }) => {
+    const copy = [...state.result];
+    if (word) {
+      return { ...state, items: filter(word, copy) };
+    }
+    return { ...state, items: state.result };
+  }),
 );
