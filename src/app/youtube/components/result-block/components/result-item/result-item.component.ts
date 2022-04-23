@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICard } from '../../../../../models/card.model';
 
 @Component({
   selector: 'app-result-item',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ResultItemComponent {
-  @Input() item!: any;
+  @Input() item!: ICard;
 }

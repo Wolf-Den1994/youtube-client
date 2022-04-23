@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { YoutubeService } from '../../youtube/services/youtube.service';
-import { IItem } from '../../youtube/models/youtube-video.model';
+import { IItem } from '../../models/youtube-video.model';
 
 @Injectable({
   providedIn: 'root',

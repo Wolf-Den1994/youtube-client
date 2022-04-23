@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { IItem } from '../../models/youtube-video.model';
+import { ICard } from '../../models/card.model';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class CoreService {
-  transformItems({ id, snippet, statistics }: any) {
+  transformItems({ id, snippet, statistics }: IItem): ICard {
     return {
       id,
       src: snippet.thumbnails.medium.url,

@@ -49,13 +49,13 @@ export class AdminComponent implements OnInit {
     if (this.form.valid) {
       this.store.dispatch(createItem({
         item: {
-          ...this.form.value,
           id: String(Date.now()),
+          src: this.form.value.img,
+          title: this.form.value.title,
           view: '0',
           like: '0',
           dislike: undefined,
           comment: '0',
-          src: this.form.value.img,
           publishedAt: this.form.value.date,
           isCustom: true,
         },

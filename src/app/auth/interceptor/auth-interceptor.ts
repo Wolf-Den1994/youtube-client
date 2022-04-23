@@ -3,7 +3,7 @@ import {
   HttpEvent, HttpInterceptor, HttpHandler, HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { API_KEY, URL_SERVER } from '../../../utils/constants';
+import { API_KEY, URL_SERVER } from '../../utils/constants';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

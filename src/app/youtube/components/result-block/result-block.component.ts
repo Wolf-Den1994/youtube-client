@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICard } from '../../../models/card.model';
 
 @Component({
   selector: 'app-result-block',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./result-block.component.scss'],
 })
 export class ResultBlockComponent {
-  @Input() items!: any;
+  @Input() items!: ICard[] | null;
 }

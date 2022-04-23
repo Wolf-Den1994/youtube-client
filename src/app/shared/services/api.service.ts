@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IVideoHttp } from '../../youtube/models/youtube-http.model';
-import { PathQuery } from '../../../utils/constants';
-import { IVideo } from '../../youtube/models/youtube-video.model';
+import { IVideoHttp } from '../../models/youtube-http.model';
+import { PathQuery } from '../../utils/constants';
+import { IVideo } from '../../models/youtube-video.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,16 +1,17 @@
 import {
   props, createAction, createReducer, on, createFeatureSelector, createSelector,
 } from '@ngrx/store';
+import { ICard } from '../../models/card.model';
 
 export const MADE_ITEM_KEY = 'madeItem';
 
-export const createItem = createAction('[ADMIN] create item', props<{ item: any }>());
+export const createItem = createAction('[ADMIN] create item', props<{ item: ICard }>());
 export const setSearchValue = createAction('[SEARCH] search value', props<{ world: string }>());
-export const setSearchItems = createAction('[SEARCH] search items', props<{ items: any[] }>());
+export const setSearchItems = createAction('[SEARCH] search items', props<{ items: ICard[] }>());
 
 export interface MadeItemState {
-  items: any
-  isShowResults: boolean
+  items: ICard[];
+  isShowResults: boolean;
 }
 
 export const initialState: MadeItemState = {
@@ -20,18 +21,21 @@ export const initialState: MadeItemState = {
 
 export const madeItemReducer = createReducer(
   initialState,
-  on(createItem, (state, { item }: any) => ({
-    ...state,
-    items: [...state.items, item],
-    isShowResults: !!state.items.length,
-  })),
+  on(createItem, (state, { item }) => {
+    console.log('item', item);
+    return {
+      ...state,
+      items: [...state.items, item],
+      isShowResults: !!state.items.length,
+    };
+  }),
   on(setSearchValue, (state) => ({
     ...state,
   })),
-  on(setSearchItems, (state, { items }: any) => ({
+  on(setSearchItems, (state, { items }) => ({
     ...state,
     items,
-    isShowResults: items.length,
+    isShowResults: !!items.length,
   })),
 );
 

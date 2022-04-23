@@ -8,9 +8,9 @@ import { headerReducer, HeaderState } from './header';
 import { MADE_ITEM_KEY, madeItemReducer, MadeItemState } from './madeItem';
 
 export interface State {
-  [FILTER_KEY]: FilterState,
-  header: HeaderState,
-  [MADE_ITEM_KEY]: MadeItemState
+  [FILTER_KEY]: FilterState;
+  header: HeaderState;
+  [MADE_ITEM_KEY]: MadeItemState;
 }
 
 export const reducers: ActionReducerMap<State> = {
