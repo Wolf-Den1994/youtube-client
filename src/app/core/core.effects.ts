@@ -6,6 +6,7 @@ import { map, switchMap } from 'rxjs/operators';
 import { ApiService } from '../shared/services/api.service';
 import { setSearchItems, setSearchValue } from './reducers/madeItem';
 import { YoutubeService } from '../youtube/services/youtube.service';
+import { CoreService } from './services/core.service';
 
 @Injectable({ providedIn: 'root' })
 export class CoreEffects {
@@ -13,6 +14,7 @@ export class CoreEffects {
     private actions: Actions,
     private apiService: ApiService,
     private youtubeService: YoutubeService,
+    private coreService: CoreService,
   ) {}
 
   setSearchValue: Observable<Action> = createEffect(() => this.actions.pipe(
@@ -22,12 +24,11 @@ export class CoreEffects {
         const itemIds = items.map(({ id }) => id.videoId);
         return this.apiService.getVideoItems(itemIds).pipe(
           map(({ items: videosItems }) => {
-            console.log('items c', items);
-            return setSearchItems({ items: videosItems });
+            const resultSearch = videosItems.map((video: any) => this.coreService.transformItems(video));
+            return setSearchItems({ items: resultSearch });
           }),
         );
       }),
     )),
   ));
-  // ), { dispatch: false });
 }

@@ -13,6 +13,8 @@ export class MoreButtonComponent {
 
   @Input() id!: string;
 
+  @Input() isCustom!: boolean;
+
   showMore() {
     this.router.navigate([`detail/${this.id}`]);
   }

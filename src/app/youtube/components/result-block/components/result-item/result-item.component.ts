@@ -22,4 +22,6 @@ export class ResultItemComponent {
   @Input() title!: string;
 
   @Input() publishedAt!: string;
+
+  @Input() isCustom!: boolean;
 }

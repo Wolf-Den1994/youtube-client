@@ -1,23 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-// import { switchMap, map } from 'rxjs/operators';
 import { IItem } from '../models/youtube-video.model';
-import { ApiService } from '../../shared/services/api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class YoutubeService {
-  constructor(
-    private http: HttpClient,
-    private apiService: ApiService,
-  ) {}
-
-  // isShowResults = false;
-
-  // searchValue = '';
-
   items!: IItem[];
 
   result!: IItem[];
@@ -25,23 +13,6 @@ export class YoutubeService {
   sortDate = 'asc';
 
   sortViews = 'asc';
-
-  // setSearchValue(value: string) {
-  //   // this.searchValue = value;
-  //   //
-  //   // return this.apiService.getVideosId(this.searchValue).pipe(
-  //   //   switchMap(({ items }) => {
-  //   //     const itemIds = items.map(({ id }) => id.videoId);
-  //   //     return this.apiService.getVideoItems(itemIds).pipe(
-  //   //       map(({ items: videosItems }) => {
-  //   //         this.result = videosItems;
-  //   //         this.items = videosItems;
-  //   //         this.isShowResults = !!this.searchValue;
-  //   //       }),
-  //   //     );
-  //   //   }),
-  //   // ).subscribe();
-  // }
 
   handleSortDate() {
     if (this.sortDate === 'asc') {

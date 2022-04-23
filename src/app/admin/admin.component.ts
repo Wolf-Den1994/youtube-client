@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AdminService } from './services/admin.service';
 import { hideHeader } from '../core/reducers/header';
+import { createItem } from '../core/reducers/madeItem';
 
 @Component({
   selector: 'app-admin',
@@ -14,7 +14,6 @@ export class AdminComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private adminService: AdminService,
     private router: Router,
     private store: Store,
   ) {
@@ -48,7 +47,19 @@ export class AdminComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-      this.adminService.create(this.form.value);
+      this.store.dispatch(createItem({
+        item: {
+          ...this.form.value,
+          id: String(Date.now()),
+          view: '0',
+          like: '0',
+          dislike: undefined,
+          comment: '0',
+          src: this.form.value.img,
+          publishedAt: this.form.value.date,
+          isCustom: true,
+        },
+      }));
       this.directDate = false;
     }
   }

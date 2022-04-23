@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { isShowResultsSelector, searchItemsSelector } from '../core/reducers/madeItem';
 import { YoutubeService } from './services/youtube.service';
@@ -18,10 +17,7 @@ export class YoutubeComponent implements OnInit {
   constructor(
     public youtubeService: YoutubeService,
     private store: Store,
-  ) {
-    // this.searchItems$ = this.store.select(searchItemsSelector);
-    console.log('this.searchItems$', this.searchItems$);
-  }
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(showHeader());
