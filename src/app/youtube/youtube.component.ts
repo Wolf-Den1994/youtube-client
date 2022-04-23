@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { isShowResultsSelector, searchItemsSelector } from '../core/reducers/madeItem';
+import { isShowResultsSelector, searchItemsSelector } from '../redux/selectors/madeItem';
 import { YoutubeService } from './services/youtube.service';
-import { showHeader } from '../core/reducers/header';
+import { showHeader } from '../redux/actions/actions';
 
 @Component({
   selector: 'app-youtube',

@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { setSearchValue } from '../../../reducers/madeItem';
+import { setSearchValue } from '../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-search-field',

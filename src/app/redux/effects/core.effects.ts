@@ -3,11 +3,11 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { map, switchMap } from 'rxjs/operators';
-import { ApiService } from '../shared/services/api.service';
-import { setSearchItems, setSearchValue } from './reducers/madeItem';
-import { YoutubeService } from '../youtube/services/youtube.service';
-import { CoreService } from './services/core.service';
-import { IItem } from '../models/youtube-video.model';
+import { ApiService } from '../../shared/services/api.service';
+import { setSearchItems, setSearchValue } from '../actions/actions';
+import { YoutubeService } from '../../youtube/services/youtube.service';
+import { CoreService } from '../../core/services/core.service';
+import { IItem } from '../../models/youtube-video.model';
 
 @Injectable({ providedIn: 'root' })
 export class CoreEffects {

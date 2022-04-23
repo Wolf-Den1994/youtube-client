@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { YoutubeService } from '../../../../youtube/services/youtube.service';
-import { toggleShowFilter } from '../../../reducers/filters';
+import { toggleShowFilter } from '../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-settings',

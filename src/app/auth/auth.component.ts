@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AuthService } from './services/auth.service';
-import { hideHeader } from '../core/reducers/header';
+import { hideHeader } from '../redux/actions/actions';
 
 @Component({
   selector: 'app-auth',

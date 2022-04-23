@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/services/auth.service';
-import { hideHeader, isShowHeaderSelector, showHeader } from '../reducers/header';
+import { isShowHeaderSelector } from '../../redux/selectors/header';
+import { hideHeader, showHeader } from '../../redux/actions/actions';
 
 @Component({
   selector: 'app-header',

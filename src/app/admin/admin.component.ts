@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { hideHeader } from '../core/reducers/header';
-import { createItem } from '../core/reducers/madeItem';
+import { createItem, hideHeader } from '../redux/actions/actions';
 
 @Component({
   selector: 'app-admin',

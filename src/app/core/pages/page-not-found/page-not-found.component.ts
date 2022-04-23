@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { hideHeader } from '../../reducers/header';
+import { hideHeader } from '../../../redux/actions/actions';
 
 @Component({
   selector: 'app-page-not-found',
