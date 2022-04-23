@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { YoutubeService } from '../../youtube/services/youtube.service';
 import { createItem } from '../../redux/actions/actions';
 import { ICustomItem } from '../../models/customItem';
 
@@ -12,7 +11,6 @@ import { ICustomItem } from '../../models/customItem';
 export class AdminService {
   constructor(
     private router: Router,
-    private youtubeService: YoutubeService,
     private store: Store,
   ) {}
 

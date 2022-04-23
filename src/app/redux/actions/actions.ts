@@ -9,3 +9,7 @@ export const hideHeader = createAction('[HEADER] hide header');
 export const createItem = createAction('[ADMIN] create item', props<{ item: ICard }>());
 export const setSearchValue = createAction('[SEARCH] search value', props<{ world: string }>());
 export const setSearchItems = createAction('[SEARCH] search items', props<{ items: ICard[] }>());
+
+export const handleSortDate = createAction('[SORT] handle sort by date');
+export const handleSortViews = createAction('[SORT] handle sort by views');
+export const handleFilterWords = createAction('[FILTER] handle filter by words', props<{ world: string }>());

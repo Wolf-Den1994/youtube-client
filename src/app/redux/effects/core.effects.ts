@@ -5,7 +5,6 @@ import { Action } from '@ngrx/store';
 import { map, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../shared/services/api.service';
 import { setSearchItems, setSearchValue } from '../actions/actions';
-import { YoutubeService } from '../../youtube/services/youtube.service';
 import { CoreService } from '../../core/services/core.service';
 import { IItem } from '../../models/youtube-video.model';
 
@@ -14,7 +13,6 @@ export class CoreEffects {
   constructor(
     private actions: Actions,
     private apiService: ApiService,
-    private youtubeService: YoutubeService,
     private coreService: CoreService,
   ) {}
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { isShowResultsSelector, searchItemsSelector } from '../redux/selectors/madeItem';
-import { YoutubeService } from './services/youtube.service';
 import { showHeader } from '../redux/actions/actions';
 
 @Component({
@@ -15,7 +14,6 @@ export class YoutubeComponent implements OnInit {
   isShowResults$ = this.store.select(isShowResultsSelector);
 
   constructor(
-    public youtubeService: YoutubeService,
     private store: Store,
   ) {}
 
