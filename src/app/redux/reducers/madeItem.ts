@@ -11,6 +11,8 @@ export interface MadeItemState {
   isShowResults: boolean;
   sortDate: string;
   sortViews: string;
+  isLoading: boolean;
+  isLoaded: boolean;
 }
 
 export const initialState: MadeItemState = {
@@ -19,6 +21,8 @@ export const initialState: MadeItemState = {
   isShowResults: false,
   sortDate: 'asc',
   sortViews: 'asc',
+  isLoading: false,
+  isLoaded: false,
 };
 
 export const madeItemReducer = createReducer(
@@ -31,12 +35,16 @@ export const madeItemReducer = createReducer(
   })),
   on(setSearchValue, (state) => ({
     ...state,
+    isLoading: true,
+    isLoaded: false,
   })),
   on(setSearchItems, (state, { items }) => ({
     ...state,
     items,
     result: items,
     isShowResults: !!items.length,
+    isLoading: false,
+    isLoaded: true,
   })),
   on(handleSortDate, (state) => {
     const copy = [...state.items];

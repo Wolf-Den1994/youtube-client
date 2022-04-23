@@ -1,7 +1,7 @@
 <app-filtering></app-filtering>
 <div
   class="wrapper-content"
-  *ngIf="isShowResults$ | async"
+  *ngIf="isShowResults$ && isLoaded$ | async"
 >
   <div class="content">
     <app-result-block
@@ -10,3 +10,4 @@
     ></app-result-block>
   </div>
 </div>
+<app-loader *ngIf="isLoading$ | async"></app-loader>

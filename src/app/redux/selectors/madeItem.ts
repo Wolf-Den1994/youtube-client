@@ -11,3 +11,11 @@ export const isShowResultsSelector = createSelector(
   featureSelector,
   (state) => state.isShowResults,
 );
+export const isLoadingSelector = createSelector(
+  featureSelector,
+  (state) => state.isLoading,
+);
+export const isLoadedSelector = createSelector(
+  featureSelector,
+  (state) => state.isLoaded,
+);
