@@ -15,7 +15,6 @@ export class SettingsComponent {
   ) {}
 
   handleShowFilter() {
-    // this.youtubeService.toggleShowFilter();
     this.store.dispatch(toggleShowFilter());
   }
 }
