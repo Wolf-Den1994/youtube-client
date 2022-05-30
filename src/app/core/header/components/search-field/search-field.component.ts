@@ -1,25 +1,33 @@
-import { Component, Input } from '@angular/core';
-import { YoutubeService } from '../../../../youtube/services/youtube.service';
+import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { setSearchValue } from '../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-search-field',
   templateUrl: './search-field.component.html',
   styleUrls: ['./search-field.component.scss'],
 })
-export class SearchFieldComponent {
+export class SearchFieldComponent implements OnInit {
   constructor(
-    public youtubeService: YoutubeService,
+    private store: Store,
+    private router: Router,
   ) {}
 
-  @Input() changeSearchValue!: Function;
+  searchWord = new Subject<Event>();
 
-  @Input() startSearch!: Function;
-
-  inputHandle = (value: string) => {
-    this.youtubeService.setSearchValue(value);
-  };
-
-  handleSearch() {
-    this.youtubeService.handleSearch();
+  ngOnInit() {
+    this.searchWord.pipe(
+      debounceTime(1100),
+      distinctUntilChanged(),
+    ).subscribe((ev: Event) => {
+      const querySearch = (ev.target as HTMLInputElement).value;
+      if (querySearch.length >= 3) {
+        this.store.dispatch(setSearchValue({ word: querySearch }));
+        this.router.navigate(['/']);
+      }
+    });
   }
 }

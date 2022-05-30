@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { YoutubeService } from './services/youtube.service';
-import { IVideo } from './models/youtube-video.model';
+import { Store } from '@ngrx/store';
+import {
+  isLoadedSelector,
+  isLoadingSelector,
+  isShowResultsSelector,
+  searchItemsSelector,
+} from '../redux/selectors/madeItem';
+import { showHeader } from '../redux/actions/actions';
 
 @Component({
   selector: 'app-youtube',
@@ -9,16 +14,19 @@ import { IVideo } from './models/youtube-video.model';
   styleUrls: ['./youtube.component.scss'],
 })
 export class YoutubeComponent implements OnInit {
+  searchItems$ = this.store.select(searchItemsSelector);
+
+  isShowResults$ = this.store.select(isShowResultsSelector);
+
+  isLoading$ = this.store.select(isLoadingSelector);
+
+  isLoaded$ = this.store.select(isLoadedSelector);
+
   constructor(
-    public youtubeService: YoutubeService,
-    private http: HttpClient,
+    private store: Store,
   ) {}
 
   ngOnInit() {
-    this.youtubeService.isShowHeader = true;
-    this.http.get<IVideo>('assets/mocks/response.json').subscribe((data) => {
-      this.youtubeService.result = data.items;
-      this.youtubeService.items = data.items;
-    });
+    this.store.dispatch(showHeader());
   }
 }

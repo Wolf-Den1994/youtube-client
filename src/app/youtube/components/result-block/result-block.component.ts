@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IItem } from '../../models/youtube-video.model';
+import { ICard } from '../../../models/card.model';
 
 @Component({
   selector: 'app-result-block',
@@ -7,5 +7,5 @@ import { IItem } from '../../models/youtube-video.model';
   styleUrls: ['./result-block.component.scss'],
 })
 export class ResultBlockComponent {
-  @Input() items!: IItem[];
+  @Input() items!: ICard[] | null;
 }

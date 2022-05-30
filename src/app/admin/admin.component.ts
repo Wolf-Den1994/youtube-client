@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { YoutubeService } from '../youtube/services/youtube.service';
+import { Store } from '@ngrx/store';
+import { hideHeader } from '../redux/actions/actions';
 import { AdminService } from './services/admin.service';
 
 @Component({
@@ -13,9 +14,9 @@ export class AdminComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private youtubeService: YoutubeService,
-    private adminService: AdminService,
     private router: Router,
+    private adminService: AdminService,
+    private store: Store,
   ) {
     this.form = new FormGroup({
       title: new FormControl('', [
@@ -39,21 +40,14 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  directDate = false;
-
-  changeDirect() {
-    this.directDate = true;
-  }
-
   submit() {
     if (this.form.valid) {
       this.adminService.create(this.form.value);
-      this.directDate = false;
     }
   }
 
   ngOnInit() {
-    this.youtubeService.isShowHeader = false;
+    this.store.dispatch(hideHeader());
   }
 
   backToHome() {

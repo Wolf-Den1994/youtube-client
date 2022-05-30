@@ -6,7 +6,7 @@ import {
   Renderer2,
   SimpleChanges,
 } from '@angular/core';
-import { Time } from '../../../utils/constants';
+import { Time } from '../../utils/constants';
 
 @Directive({
   selector: '[appColor]',

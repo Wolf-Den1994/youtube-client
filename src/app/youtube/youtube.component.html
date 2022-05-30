@@ -1,12 +1,13 @@
 <app-filtering></app-filtering>
 <div
   class="wrapper-content"
-  *ngIf="youtubeService.isShowResults"
+  *ngIf="isShowResults$ && isLoaded$ | async"
 >
   <div class="content">
     <app-result-block
       class="data-wrapper"
-      [items]="youtubeService.items"
+      [items]="searchItems$ | async"
     ></app-result-block>
   </div>
 </div>
+<app-loader *ngIf="isLoading$ | async"></app-loader>
