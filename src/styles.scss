@@ -50,3 +50,25 @@ body {
   align-items: center;
   gap: 3px;
 }
+
+.card-line {
+  height: 5px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  border-radius: 0 0 5px 5px;
+  background: #F2C94C;
+
+  &.green {
+    background: #27AE60;
+  }
+  &.blue {
+    background: #2F80ED;
+  }
+  &.red {
+    background: #EB5757;
+  }
+}

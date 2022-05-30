@@ -64,13 +64,54 @@
     },
     {
       "files": [
-        "src/app/constants/icons/**/*.html"
+        "src/app/shared/icons/**/*.html"
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {
         "max-len": "off"
+      }
+    },
+    {
+      "files": [
+        "src/app/youtube/youtube.module.ts"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "airbnb-base",
+        "airbnb-typescript/base"
+      ],
+      "rules": {
+        "max-len": "off",
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "lines-between-class-members": "off",
+        "no-bitwise": "off",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ]
       }
     }
   ]

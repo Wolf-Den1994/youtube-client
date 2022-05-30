@@ -1,0 +1,17 @@
+<header
+  class="header"
+  *ngIf="isShowHeader$ | async"
+>
+  <div class="header-search">
+    <app-logo></app-logo>
+    <app-search-field></app-search-field>
+    <app-settings></app-settings>
+  </div>
+  <div class="header-login">
+    <app-login></app-login>
+    <div class="header-logout">
+      <app-logout class="header-login__logout"></app-logout>
+      <app-admin-button class="header-login__admin"></app-admin-button>
+    </div>
+  </div>
+</header>

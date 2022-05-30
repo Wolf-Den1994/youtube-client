@@ -1,0 +1,54 @@
+.header {
+  padding: 15px 8px;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logout {
+  position: relative;
+}
+
+.header-login {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+
+  &__logout,
+  &__admin {
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+    pointer-events: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  &__admin {
+    top: 50px;
+  }
+
+
+  &:hover {
+    .header-login__logout,
+    .header-login__admin {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: visible;
+    }
+  }
+}
+
+.header-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,15 @@
+<div class="card">
+  <app-video-thumbnail [src]="item.src"></app-video-thumbnail>
+  <div class="counts">
+    <app-views-count [view]="item.view"></app-views-count>
+    <app-likes-count [like]="item.like"></app-likes-count>
+    <app-comments-count [comment]="item.comment"></app-comments-count>
+  </div>
+  <app-video-title [title]="item.title"></app-video-title>
+  <app-more-button
+    class="card-button"
+    [id]="item.id"
+    [isCustom]="item.isCustom"
+  ></app-more-button>
+  <div class="card-line" [appColor]="item.publishedAt"></div>
+</div>
