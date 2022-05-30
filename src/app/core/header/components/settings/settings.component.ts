@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { YoutubeService } from '../../../../youtube/services/youtube.service';
+import { Store } from '@ngrx/store';
+import { toggleShowFilter } from '../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-settings',
@@ -8,10 +9,10 @@ import { YoutubeService } from '../../../../youtube/services/youtube.service';
 })
 export class SettingsComponent {
   constructor(
-    public youtubeService: YoutubeService,
+    private store: Store,
   ) {}
 
   handleShowFilter() {
-    this.youtubeService.toggleShowFilter();
+    this.store.dispatch(toggleShowFilter());
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { YoutubeService } from '../../../../services/youtube.service';
+import { Store } from '@ngrx/store';
+import { handleSortDate, handleSortViews } from '../../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-button-sort',
@@ -8,16 +9,16 @@ import { YoutubeService } from '../../../../services/youtube.service';
 })
 export class ButtonSortComponent {
   constructor(
-    public youtubeService: YoutubeService,
+    private store: Store,
   ) {}
 
   @Input() content!: string;
 
   handleClick(content: string) {
     if (content === 'Date') {
-      this.youtubeService.handleSortDate();
+      this.store.dispatch(handleSortDate());
     } else {
-      this.youtubeService.handleSortViews();
+      this.store.dispatch(handleSortViews());
     }
   }
 }

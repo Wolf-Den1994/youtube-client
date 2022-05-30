@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { YoutubeService } from '../../youtube/services/youtube.service';
 import { AuthService } from '../../auth/services/auth.service';
+import { isShowHeaderSelector } from '../../redux/selectors/header';
+import { hideHeader, showHeader } from '../../redux/actions/actions';
 
 @Component({
   selector: 'app-header',
@@ -11,13 +13,15 @@ import { AuthService } from '../../auth/services/auth.service';
 export class HeaderComponent {
   private subscription: Subscription;
 
+  isShowHeader$ = this.store.select(isShowHeaderSelector);
+
   constructor(
     private authService: AuthService,
-    public youtubeService: YoutubeService,
+    private store: Store,
   ) {
     this.subscription = this.authService.authState$.subscribe((value) => {
-      if (value) this.youtubeService.showHeader();
-      else this.youtubeService.hideHeader();
+      if (value) this.store.dispatch(showHeader());
+      else this.store.dispatch(hideHeader());
     });
   }
 }

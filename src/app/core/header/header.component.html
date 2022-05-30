@@ -1,6 +1,6 @@
 <header
   class="header"
-  *ngIf="youtubeService.isShowHeader"
+  *ngIf="isShowHeader$ | async"
 >
   <div class="header-search">
     <app-logo></app-logo>

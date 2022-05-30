@@ -4,8 +4,8 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IItem, IVideo } from '../../models/youtube-video.model';
-import { PathQuery } from '../../../../utils/constants';
+import { IItem, IVideo } from '../../../models/youtube-video.model';
+import { PathQuery } from '../../../utils/constants';
 
 @Component({
   selector: 'app-detail',
