@@ -1,9 +1,11 @@
 import {
-  Component, OnInit,
+  Component,
+  OnInit,
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IItem, IVideo } from '../../models/youtube-video.model';
+import { IItem, IVideo } from '../../../models/youtube-video.model';
+import { PathQuery } from '../../../utils/constants';
 
 @Component({
   selector: 'app-detail',
@@ -19,17 +21,17 @@ export class DetailComponent implements OnInit {
 
   item?: IItem;
 
-  items!: IItem[];
-
   ngOnInit() {
-    this.http.get<IVideo>('assets/mocks/response.json').subscribe(({ items }) => {
-      this.items = items;
-      this.item = this.items.find(({ id }) => id === this.route.snapshot.params['id']);
-      if (!this.item) this.router.navigate(['error']);
-    });
+    this.http
+      .get<IVideo>(`${PathQuery.Videos}&id=${this.route.snapshot.params['id']}`)
+      .subscribe(({ items }) => {
+        const [item] = items;
+        this.item = item;
+        if (!this.item) this.router.navigate(['error']);
+      });
   }
 
-  backToHome = () => {
+  backToHome() {
     this.router.navigate(['']);
-  };
+  }
 }

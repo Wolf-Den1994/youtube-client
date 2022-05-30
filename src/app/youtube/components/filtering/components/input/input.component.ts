@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { handleFilterWords } from '../../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-input',
@@ -6,12 +8,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Input() startFilter!: Function;
+  constructor(
+    private store: Store,
+  ) {}
 
   value = '';
 
   inputHandle(newValue: string) {
     this.value = newValue;
-    this.startFilter(newValue);
+    this.store.dispatch(handleFilterWords({ word: newValue }));
   }
 }

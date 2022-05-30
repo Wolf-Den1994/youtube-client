@@ -2,16 +2,8 @@
   <label class="search-field-label">
     <input
       type="text"
-      placeholder="Search"
-      #searchInput
-      (input)="inputHandle(searchInput.value)"
+      placeholder="Search | minimum length 3 symbols for search"
+      (input)="searchWord.next($event)"
     >
   </label>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="handleSearch()"
-  >
-    <mat-icon aria-hidden="false">search</mat-icon>
-  </button>
 </div>

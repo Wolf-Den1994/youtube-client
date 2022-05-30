@@ -1,12 +1,10 @@
-<div class="filtering" *ngIf="youtubeService.isShowFilters">
+<div class="filtering" *ngIf="isShowFilters$ | async">
   <span>Sorting by:</span>
-  <app-buttons
+  <app-button-sort
     [content]="'Date'"
-    [startSort]="startSort"
-  ></app-buttons>
-  <app-buttons
+  ></app-button-sort>
+  <app-button-sort
     [content]="'Count of views'"
-    [startSort]="startSort"
-  ></app-buttons>
-  <app-input [startFilter]="startFilter"></app-input>
+  ></app-button-sort>
+  <app-input></app-input>
 </div>

@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { toggleShowFilter } from '../../../../redux/actions/actions';
 
 @Component({
   selector: 'app-settings',
@@ -6,11 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent {
-  @Input() isShowFilters!: boolean;
+  constructor(
+    private store: Store,
+  ) {}
 
-  @Input() changeShowFilter!: Function;
-
-  handleShowFilter = () => {
-    this.changeShowFilter();
-  };
+  handleShowFilter() {
+    this.store.dispatch(toggleShowFilter());
+  }
 }

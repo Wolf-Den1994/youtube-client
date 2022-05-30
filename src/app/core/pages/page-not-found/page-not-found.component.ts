@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { YoutubeService } from '../../../youtube/services/youtube.service';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { hideHeader } from '../../../redux/actions/actions';
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,10 +10,15 @@ import { YoutubeService } from '../../../youtube/services/youtube.service';
 })
 export class PageNotFoundComponent implements OnInit {
   constructor(
-    public youtubeService: YoutubeService,
+    private router: Router,
+    private store: Store,
   ) {}
 
   ngOnInit(): void {
-    this.youtubeService.isShowHeader = false;
+    this.store.dispatch(hideHeader());
+  }
+
+  backToHome() {
+    this.router.navigate(['']);
   }
 }

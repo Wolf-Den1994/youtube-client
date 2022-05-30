@@ -6,6 +6,7 @@ import { IconEyeComponent } from './icons/icon-eye/icon-eye.component';
 import { IconLikeComponent } from './icons/icon-like/icon-like.component';
 import { IconSettingsComponent } from './icons/icon-settings/icon-settings.component';
 import { MaterialModule } from './modules/material.module';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MaterialModule } from './modules/material.module';
     IconEyeComponent,
     IconLikeComponent,
     IconSettingsComponent,
+    LoaderComponent,
   ],
   imports: [
     MaterialModule,
@@ -27,6 +29,7 @@ import { MaterialModule } from './modules/material.module';
     IconLikeComponent,
     IconSettingsComponent,
     MaterialModule,
+    LoaderComponent,
   ],
 })
 export class SharedModule { }

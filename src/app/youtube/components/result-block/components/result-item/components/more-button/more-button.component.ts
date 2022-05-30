@@ -13,7 +13,9 @@ export class MoreButtonComponent {
 
   @Input() id!: string;
 
-  showMore = () => {
+  @Input() isCustom!: boolean | undefined;
+
+  showMore() {
     this.router.navigate([`detail/${this.id}`]);
-  };
+  }
 }
