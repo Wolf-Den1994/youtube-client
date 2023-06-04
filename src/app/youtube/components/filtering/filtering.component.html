@@ -1,0 +1,10 @@
+<div class="filtering" *ngIf="isShowFilters$ | async">
+  <span>Sorting by:</span>
+  <app-button-sort
+    [content]="'Date'"
+  ></app-button-sort>
+  <app-button-sort
+    [content]="'Count of views'"
+  ></app-button-sort>
+  <app-input></app-input>
+</div>
